@@ -14,11 +14,11 @@ dependencies:
     sdk: flutter
   path: ^1.9.1
   path_provider: ^2.1.5
-  record: ^6.0.0
+  record: ^6.1.1
   waveform_flutter: ^1.2.0
   web: ^1.1.1
 
 dev_dependencies:
-  all_lint_rules_community: ^0.0.41
+  all_lint_rules_community: ^0.0.43
   flutter_test:
     sdk: flutter
