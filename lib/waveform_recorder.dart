@@ -6,6 +6,7 @@ export 'package:record/record.dart'
         InputDevice,
         IosAudioCategoryOption,
         IosRecordConfig,
+        AudioInterruptionMode,
         RecordConfig;
 
 export 'src/waveform_recorder.dart';
