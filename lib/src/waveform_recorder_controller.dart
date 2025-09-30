@@ -35,7 +35,8 @@ class WaveformRecorderController extends ChangeNotifier {
           echoCancel: config?.echoCancel ?? false,
           noiseSuppress: config?.noiseSuppress ?? false,
           androidConfig: config?.androidConfig ?? const AndroidRecordConfig(),
-          audioInterruption: config?.audioInterruption ?? AudioInterruptionMode.pause,
+          audioInterruption:
+              config?.audioInterruption ?? AudioInterruptionMode.pause,
           iosConfig: config?.iosConfig ?? const IosRecordConfig(),
         );
 

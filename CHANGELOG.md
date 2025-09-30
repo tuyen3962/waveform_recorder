@@ -1,3 +1,8 @@
+## 1.8.0
+
+- Thanks to @dickverweij for [the PR to add audio interruption
+  support](https://github.com/csells/waveform_recorder/pull/11).
+
 ## 1.7.0
 
 * Expand config beyond just the audio encoder per

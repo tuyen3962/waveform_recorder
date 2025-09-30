@@ -3,10 +3,10 @@ export 'package:record/record.dart'
         AndroidAudioSource,
         AndroidRecordConfig,
         AudioEncoder,
+        AudioInterruptionMode,
         InputDevice,
         IosAudioCategoryOption,
         IosRecordConfig,
-        AudioInterruptionMode,
         RecordConfig;
 
 export 'src/waveform_recorder.dart';
