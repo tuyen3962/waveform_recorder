@@ -19,6 +19,8 @@ class WaveformRecorder extends StatefulWidget {
     this.durationTextStyle =
         const TextStyle(color: Color(0xFF000000)), // Default to black
     super.key,
+    this.showDuration = true,
+    this.padding = const EdgeInsets.all(8),
   });
 
   /// The height of the waveform visualization.
@@ -38,6 +40,12 @@ class WaveformRecorder extends StatefulWidget {
 
   /// The text style for the duration text.
   final TextStyle durationTextStyle;
+
+  /// Whether to show the duration text.
+  final bool showDuration;
+
+  // Padding for the waveform view
+  final EdgeInsets padding;
 
   @override
   State<WaveformRecorder> createState() => _WaveformRecorderState();
@@ -81,29 +89,33 @@ class _WaveformRecorderState extends State<WaveformRecorder> {
   Widget build(BuildContext context) => SizedBox(
         height: widget.height,
         child: Padding(
-          padding: const EdgeInsets.all(8),
-          child: Row(
-            children: [
-              Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  _elapsedTime,
-                  style: widget.durationTextStyle,
-                ),
-              ),
-              const SizedBox(width: 8),
-              Expanded(
-                child: AnimatedWaveList(
-                  stream: widget.controller.amplitudeStream,
-                  barBuilder: (animation, amplitude) => WaveFormBar(
-                    animation: animation,
-                    amplitude: amplitude,
-                    color: widget.waveColor,
-                  ),
-                ),
-              ),
-            ],
-          ),
+          padding: widget.padding,
+          child: widget.showDuration
+              ? Row(
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        _elapsedTime,
+                        style: widget.durationTextStyle,
+                      ),
+                    ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: _buildWaveform(),
+                    ),
+                  ],
+                )
+              : _buildWaveform(),
+        ),
+      );
+
+  Widget _buildWaveform() => AnimatedWaveList(
+        stream: widget.controller.amplitudeStream,
+        barBuilder: (animation, amplitude) => WaveFormBar(
+          animation: animation,
+          amplitude: amplitude,
+          color: widget.waveColor,
         ),
       );
 
